@@ -1,10 +1,24 @@
 source UtilScripts/PrintUtils
 
 # source dir where IOS drawbles exist
-sourceDir="$1"
+if [ -z "$1" ]
+then
+  sourceDir="/Users/envative/git/EmobaImagesIOSToAndroid/Images.xcassets"
+  echo $sourceDir
+else
+  sourceDir="$1"
+fi
+
 
 # destination dir to create the drawable folders in
-destinationDir="$2"
+if [ -z "$2" ]
+then
+  destinationDir="/Users/envative/git/EmobaImagesIOSToAndroid/Android"
+  echo $destinationDir
+else
+  destinationDir="$2"
+fi
+
 
 #create destination dir if not exists
 [ -d "$destinationDir" ] || mkdir $destinationDir
